@@ -12,7 +12,7 @@ main {
 	padding: 10px;
 	border-radius: 6px;
 
-	background-color: #fff9f9;
+	background-color: #F85D1B;
 	box-shadow: 0 0 20px -5px rgba(0, 0, 0, .25);
 
 	display: flex;
@@ -21,10 +21,9 @@ main {
     /* align-items: center; */
 }
 
-header {
+/* header {
     display: flex;
     flex-wrap: nowrap;
-    /* justify-content: space-around; */
     justify-content: center;
     
 	height: 120px;
@@ -41,7 +40,6 @@ header {
     width: 200px;
     height: 60px;
     background-color: #fff;
-    /* margin-right: auto; */
     padding: 10px;
     border-radius: 6px;
     margin-top: 20px;
@@ -60,30 +58,19 @@ header h2 {
 
 }
  button {
-    background: #fff;
-    border-radius: 7px;
-    color: #757575;
-    position: relative;
-    height: 25px;
-    margin: 1px;
-    min-width: 50px;
-    padding: 0 16px;
-    display: inline-block;
-    font-family: "Roboto","Helvetica","Arial",sans-serif;
-    font-size: 14px;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0;
-    overflow: hidden;
-    will-change: box-shadow;
-    outline: none;
-    cursor: pointer;
-    text-decoration: none;
-    vertical-align: middle;
+    background-color: #fff;
+	width: 60px;
+	height: 60px;
+	border-radius: 15%;
+	margin: 5px;
+	font-size: 24px;
+	text-transform: uppercase;
+	transition: transform .2s;
 }
 
 button:hover {
     background-color: rgba(158,158,158,.2);
+    cursor: pointer;
 }
 
 button:active {
@@ -100,11 +87,9 @@ input {
     outline: none;
 }
 
-/* Todo form */
+
 .todo-form {
     margin: auto;
-    /* display: flex; */
-    /* width: 10px; */
     height: 40px;
     background-color: #FAFAFA;
     border-top: 1px solid rgba(0,0,0,.1);
@@ -114,7 +99,6 @@ input {
 .todo-form input {
       width: 130px;
       height: 15px;
-    /* flex: 1; */
     outline: none;
     transition: all .2s;
 }
@@ -151,7 +135,6 @@ section .answerCards {
 footer {
     display: flex;
     flex-wrap: nowrap;
-    /* justify-content: space-around; */
     justify-content: center;
     
 	height: 300px;
@@ -174,3 +157,6 @@ footer .cards {
     width: 95px;
     height: 110px;
 }
+
+
+ */
