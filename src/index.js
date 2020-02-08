@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom'
 
+import styles from './styles/app.css'
+
 import App from './App'
 
-import s from '../src/img/1.png'
 
-
-ReactDOM.render(<App />, document.getElementById('root'))
+ReactDOM.render(<App title={ 'word' } />, document.getElementById('root'))
