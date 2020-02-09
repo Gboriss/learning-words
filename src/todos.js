@@ -16,7 +16,7 @@ const todos = [
         id: 3,
         title: 'rabbit',
         translation: 'заяц',
-        completed: true
+        completed: false
     },
     {
         id: 4,

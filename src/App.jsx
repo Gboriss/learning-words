@@ -1,8 +1,11 @@
 import React from 'react';
+import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'; 
+
 import Header from './components/Header'
 import Form from './components/Form'
 import Cards from './components/Cards'
+import todos from './todos'
 
 function App(props) {
     return (
@@ -11,9 +14,13 @@ function App(props) {
             <Form />
             
             <div className='cards'>
-                <Cards title={ 'Fox' } translated={ 'Лиса' } completed={ true }/>
-                <Cards title={ 'Cat' } translated={ 'Кисюк' } completed={ false }/>
-                <Cards title={ 'Winter' } translated={ 'Зима' } completed={ true }/>
+                { props.todos.map(cards => 
+                    <Cards
+                    key={ cards.id } 
+                    title={ cards.title } 
+                    translated={ cards.translation } 
+                    completed={ cards.completed } 
+                    />) }
             </div> 
 
         </main>
@@ -21,9 +28,7 @@ function App(props) {
 }
 
 
-// App.propTypes = {
-//     title: PropTypes.string
-// }
+//  
 
 // App.defaultProps = {
 //     title: 'word'
@@ -31,3 +36,5 @@ function App(props) {
 
 
 export default App
+
+ReactDOM.render(<App todos={ todos } />, document.getElementById('root'))
