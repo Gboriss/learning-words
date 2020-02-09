@@ -7,34 +7,48 @@ import Form from './components/Form'
 import Cards from './components/Cards'
 import todos from './todos'
 
-function App(props) {
-    return (
-        <main>
-            <Header />
-            <Form />
-            
-            <div className='cards'>
-                { props.todos.map(cards => 
-                    <Cards
-                    key={ cards.id } 
-                    title={ cards.title } 
-                    translated={ cards.translation } 
-                    completed={ cards.completed } 
-                    />) }
-            </div> 
+class App extends React.Component {
+    constructor(props) {
+        super(props)
 
-        </main>
-    )
+        this.state = {
+            cards: this.props.initialData
+        }
+    }
+
+    handleStatusChange = (id) => {
+        let cards = this.state.cards.map(card => {
+            if (card.id === id) {
+                card.completed = !card.completed
+            }
+            return card
+        })
+        this.setState({ cards })
+    }
+    
+    render() {
+        return (
+            <main>
+                <Header />
+                <Form />
+                
+                <div className='cards'>
+                    { this.state.cards.map(cards => 
+                        <Cards
+                            key={ cards.id } 
+                            id={ cards.id }
+                            title={ cards.title } 
+                            translated={ cards.translation } 
+                            completed={ cards.completed } 
+                            onStatusChange={ this.handleStatusChange }
+                        />) }
+                </div> 
+        
+            </main>
+        )  
+    }
 }
-
-
-//  
-
-// App.defaultProps = {
-//     title: 'word'
-// }
-
 
 export default App
 
-ReactDOM.render(<App todos={ todos } />, document.getElementById('root'))
+ReactDOM.render(<App initialData={ todos } />, document.getElementById('root'))
