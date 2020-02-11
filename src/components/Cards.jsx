@@ -8,15 +8,17 @@ function Cards(props) {
     return (
 
         <div className='container'>
-            <div className='newspaper' checked={ props.completed } onClick={ () => props.onStatusChange(props.id) }>
-                {props.completed
-                    ? <h2 className='translate'>{ props.translated }</h2>
-                    : <h2 className='text'>{ props.title }</h2>  
+            <div className='newspaper' checked={ props.checked } 
+                onClick={ () => props.onStatusChange(props.id) }>
+                {props.checked
+                    ? <h2 className='text'>{ props.title }</h2> 
+                    : <h2 className='translate'>{ props.translated }</h2>
                 } 
             </div>
             <div className='rightNo'>
-                <Check className='buttons' icon={ '✓' } checked={ props.completed } />
-                <Check className='buttons' icon={ '✗' } checked={ props.completed }/>
+                <Check className='buttons' icon={ '✓' } />
+                <Check className='buttons' icon={ '✗' } 
+                    onClick={ () => props.onDelete(props.id) } />
             </div>
         </div>    
     ) 

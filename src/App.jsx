@@ -19,17 +19,23 @@ class App extends React.Component {
     handleStatusChange = (id) => {
         let cards = this.state.cards.map(card => {
             if (card.id === id) {
-                card.completed = !card.completed
+                card.checked = !card.checked
             }
             return card
         })
+        this.setState({ cards })
+    }
+
+    handleDelete = (id) => {
+        let cards = this.state.cards.filter(todo => todo.id !== id)
+
         this.setState({ cards })
     }
     
     render() {
         return (
             <main>
-                <Header />
+                <Header cards={ this.state.cards } />
                 <Form />
                 
                 <div className='cards'>
@@ -40,7 +46,10 @@ class App extends React.Component {
                             title={ cards.title } 
                             translated={ cards.translation } 
                             completed={ cards.completed } 
+                            checked={ cards.checked }
                             onStatusChange={ this.handleStatusChange }
+                            onDelete={ this.handleDelete }
+
                         />) }
                 </div> 
         

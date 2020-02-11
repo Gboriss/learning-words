@@ -3,32 +3,37 @@ const todos = [
         id: 1,
         title: 'cat',
         translation: 'кошка',
-        completed: true
+        completed: true,
+        checked: true
     },
 
     {
         id: 2,
         title: 'dog',
         translation: 'собака',
-        completed: true
+        completed: false,
+        checked: true
     },
     {
         id: 3,
         title: 'rabbit',
         translation: 'заяц',
-        completed: false
+        completed: false,
+        checked: false
     },
     {
         id: 4,
         title: 'wolf',
         translation: 'волк',
-        completed: true
+        completed: true,
+        checked: false
     },
     {
         id: 5,
         title: 'fox',
         translation: 'лиса',
-        completed: true
+        completed: true,
+        checked: true
     }
 ]
 
