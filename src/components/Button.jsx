@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 function Button(props) {
     return (
-        <button className={ props.className }> { props.icon } </button>
+        <button className={ props.className } { ...props }> { props.icon } </button>
     )
 }
 

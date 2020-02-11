@@ -2,8 +2,8 @@ import React from 'react';
 
 function Header(props) {
     let total = props.cards.length
-    let completed = props.cards.filter(todo => todo.completed).length
-    let notCompleted = total - completed
+    let done = props.cards.filter(todo => todo.learn).length
+    let notDone = total - done
 
     return (
         <header className='sidebar' cards={ props.cards }>
@@ -11,10 +11,10 @@ function Header(props) {
                 <div className='ui'>{ total }</div>
             </h2>
             <h2 className='learn'>learn
-                <div className='ui'>{ completed }</div>
+                <div className='ui'>{ done }</div>
             </h2>
             <h2 className='know'> know
-                <div className='ui'>{ notCompleted }</div>
+                <div className='ui'>{ notDone }</div>
             </h2>
         </header>
     )

@@ -16,9 +16,12 @@ function Cards(props) {
                 } 
             </div>
             <div className='rightNo'>
-                <Check className='buttons' icon={ '✓' } />
-                <Check className='buttons' icon={ '✗' } 
-                    onClick={ () => props.onDelete(props.id) } />
+                <Check className='correct' icon={ '✖' } 
+                    onClick={ () => props.onDelete(props.id) }/>
+                <Check className='delete' icon={ '✎' } />
+                <Check className='buttons' icon={ '✓' } 
+                    onClick={ () => props.done(props.id) }/>
+                <Check className='buttons' icon={ '✗' } />
             </div>
         </div>    
     ) 

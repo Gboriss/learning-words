@@ -4,7 +4,8 @@ const todos = [
         title: 'cat',
         translation: 'кошка',
         completed: true,
-        checked: true
+        checked: true,
+        learn: true
     },
 
     {
@@ -12,28 +13,32 @@ const todos = [
         title: 'dog',
         translation: 'собака',
         completed: false,
-        checked: true
+        checked: true,
+        learn: true
     },
     {
         id: 3,
         title: 'rabbit',
         translation: 'заяц',
         completed: false,
-        checked: false
+        checked: false,
+        learn: true
     },
     {
         id: 4,
         title: 'wolf',
         translation: 'волк',
         completed: true,
-        checked: false
+        checked: false,
+        learn: false
     },
     {
         id: 5,
         title: 'fox',
         translation: 'лиса',
         completed: true,
-        checked: true
+        checked: true,
+        learn: true
     }
 ]
 

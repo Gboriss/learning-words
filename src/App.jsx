@@ -15,6 +15,11 @@ class App extends React.Component {
             cards: this.props.initialData
         }
     }
+    
+    // nextId() {
+    //     this._nextId = this._nextId || 6
+    //     return this._nextId++
+    // }
 
     handleStatusChange = (id) => {
         let cards = this.state.cards.map(card => {
@@ -26,17 +31,41 @@ class App extends React.Component {
         this.setState({ cards })
     }
 
-    handleDelete = (id) => {
-        let cards = this.state.cards.filter(todo => todo.id !== id)
+    handleAdd = (title, translation) => {
+        let card = {
+            id: this.state.cards.length + 1,
+            title,
+            translation,
+            completed: false,
+            checked: true,
+            learn: false
+        }
+        let cards = [...this.state.cards, card]
 
         this.setState({ cards })
     }
+
+    handleDelete = (id) => {
+        let cards = this.state.cards.filter(card => card.id !== id)
+
+        this.setState({ cards })
+    }
+
+    // handleDone = (id) => {
+    //     let cards = this.state.cards.filter(card => {
+    //         if (card.id === id) {
+    //             card.learn = !card.learn
+    //         }
+    //         return card
+    //     })
+    //     this.setState({ cards })
+    // }
     
     render() {
         return (
             <main>
                 <Header cards={ this.state.cards } />
-                <Form />
+                <Form onAdd={ this.handleAdd}/>
                 
                 <div className='cards'>
                     { this.state.cards.map(cards => 
@@ -47,8 +76,10 @@ class App extends React.Component {
                             translated={ cards.translation } 
                             completed={ cards.completed } 
                             checked={ cards.checked }
+                            learn={ cards.learn }
                             onStatusChange={ this.handleStatusChange }
                             onDelete={ this.handleDelete }
+                            done={ this.handleDone }
 
                         />) }
                 </div> 
