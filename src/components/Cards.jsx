@@ -12,14 +12,17 @@ class Cards extends React.Component {
 
     handleSubmit = (event) => {
         event.preventDefault()
-        let title = this.refs.title.value
+        {this.props.checked
+        ? this.props.onEdit(this.props.id, this.refs.title.value)
+        : this.props.onEditTranslated(this.props.id, this.refs.translated.value)}
+     
+        // let title = this.refs.title.value
         // let translated = this.refs.translated.value
 
-        this.props.onEdit(this.props.id, title)
+        // this.props.onEdit(this.props.id, title)
         // this.props.onEditTranslated(this.props.id, translated)
         this.setState({ editing: false })
     }
-
 
 
     render() {
