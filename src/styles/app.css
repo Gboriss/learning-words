@@ -138,7 +138,7 @@ main {
 }
 
 .delete,
-.correct {
+.edit {
     font-size: 15px;
     color: #e22e49;
     border-radius: 0;
@@ -151,7 +151,7 @@ main {
     cursor: pointer;
 }
 
-.delete {
+.edit {
     margin-bottom: 50px;
 }
 
@@ -216,4 +216,3 @@ main {
     background: transparent;
     cursor: pointer;
 }
-

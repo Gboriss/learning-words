@@ -51,6 +51,27 @@ class App extends React.Component {
         this.setState({ cards })
     }
 
+    handleEdit = (id, title) => {
+        let cards = this.state.cards.map(card => {
+            if (card.id === id) {
+                card.title = title
+            }
+            return card
+        })
+        this.setState({ cards })
+    }
+    
+    
+    handleEditTranslated = (id, translated) => {
+        let cards = this.state.cards.map(card => {
+            if (card.id === id) {
+                card.translation = translated
+            }
+            return card
+        })
+        this.setState({ cards })
+    }
+
     // handleDone = (id) => {
     //     let cards = this.state.cards.filter(card => {
     //         if (card.id === id) {
@@ -80,6 +101,8 @@ class App extends React.Component {
                             onStatusChange={ this.handleStatusChange }
                             onDelete={ this.handleDelete }
                             done={ this.handleDone }
+                            onEdit={ this.handleEdit }
+                            onEditTranslated={ this.handleEditTranslated }
 
                         />) }
                 </div> 

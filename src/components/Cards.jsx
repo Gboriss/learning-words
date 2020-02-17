@@ -1,31 +1,61 @@
 import React from 'react';
-import PropTypes from 'prop-types'; 
-import Button from './Button'
 import Check from './Check'
 
-function Cards(props) {
+class Cards extends React.Component {
+    constructor(props) {
+        super(props)
 
-    return (
+        this.state = {
+            editing: false
+        }
+    }
 
-        <div className='container'>
-            <div className='newspaper' checked={ props.checked } 
-                onClick={ () => props.onStatusChange(props.id) }>
-                {props.checked
-                    ? <h2 className='text'>{ props.title }</h2> 
-                    : <h2 className='translate'>{ props.translated }</h2>
-                } 
-            </div>
-            <div className='rightNo'>
-                <Check className='correct' icon={ '✖' } 
-                    onClick={ () => props.onDelete(props.id) }/>
-                <Check className='delete' icon={ '✎' } />
-                <Check className='buttons' icon={ '✓' } 
-                    onClick={ () => props.done(props.id) }/>
-                <Check className='buttons' icon={ '✗' } />
-            </div>
-        </div>    
-    ) 
+    handleSubmit = (event) => {
+        event.preventDefault()
+        let title = this.refs.title.value
+        // let translated = this.refs.translated.value
+
+        this.props.onEdit(this.props.id, title)
+        // this.props.onEditTranslated(this.props.id, translated)
+        this.setState({ editing: false })
+    }
+
+
+
+    render() {
+        return (this.state.editing ?
+            <form className='edit-form' onSubmit={ this.handleSubmit }>
+                {this.props.checked
+                    ? <input type='text' ref='title' defaultValue={ this.props.title } />
+                    : <input type='text' ref='translated' defaultValue={ this.props.translated } />
+                }
+                <Check className='edit' icon={ '☑' } type='submit' />
+            </form>
+            :
+            <div className='container'>
+                <div className='newspaper' checked={ this.props.checked } 
+                    onClick={ () => this.props.onStatusChange(this.props.id) }>
+                    {this.props.checked
+                        ? <h2 className='text'>{ this.props.title }</h2> 
+                        : <h2 className='translate'>{ this.props.translated }</h2>
+                    } 
+                </div>
+                <div className='rightNo'>
+                    <Check className='delete' icon={ '✖' } 
+                        onClick={ () => this.props.onDelete(this.props.id) }/>
+                    <Check className='edit' icon={ '✎' } 
+                        onClick={() => this.setState({ editing: true })}/>
+                    <Check className='buttons' icon={ '✓' } 
+                        onClick={ () => this.props.done(this.props.id) }/>
+                    <Check className='buttons' icon={ '✗' } />
+                </div>
+                
+            </div>    
+        ) 
+
+    }
 }
+
 
 // class Cards extends React.Component {
 //     constructor(props) {
