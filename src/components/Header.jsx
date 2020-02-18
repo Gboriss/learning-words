@@ -13,7 +13,7 @@ function Header(props) {
             <h2 className='learn'>learn
                 <div className='ui'>{ done }</div>
             </h2>
-            <h2 className='know'> know
+            <h2 className='know'> dont know
                 <div className='ui'>{ notDone }</div>
             </h2>
         </header>

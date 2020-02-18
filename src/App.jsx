@@ -72,15 +72,25 @@ class App extends React.Component {
         this.setState({ cards })
     }
 
-    // handleDone = (id) => {
-    //     let cards = this.state.cards.filter(card => {
-    //         if (card.id === id) {
-    //             card.learn = !card.learn
-    //         }
-    //         return card
-    //     })
-    //     this.setState({ cards })
-    // }
+    handleDone = (id) => {
+        let cards = this.state.cards.filter(card => {
+            if (card.id === id) {
+                card.learn = !card.learn
+            }
+            return card
+        })
+        this.setState({ cards })
+    }
+
+    handlenotDone = (id) => {
+        let cards = this.state.cards.filter(card => {
+            if (card.id === id) {
+                card.learn = !card.learn
+            }
+            return card
+        })
+        this.setState({ cards })
+    }
     
     render() {
         return (
@@ -101,6 +111,7 @@ class App extends React.Component {
                             onStatusChange={ this.handleStatusChange }
                             onDelete={ this.handleDelete }
                             done={ this.handleDone }
+                            notDone={ this.handlenotDone }
                             onEdit={ this.handleEdit }
                             onEditTranslated={ this.handleEditTranslated }
 

@@ -151,8 +151,24 @@ main {
     cursor: pointer;
 }
 
+
 .edit {
     margin-bottom: 50px;
+}
+
+.editDone {
+    font-size: 20px;
+    color: #e22e49;
+    border-radius: 0;
+
+    float: right;
+    margin-top: 60px;
+    margin-right: 35px;
+    outline: 0 !important;
+    border: none;
+    padding: 0;
+    background: transparent;
+    cursor: pointer; 
 }
 
 .newspaper {
@@ -215,4 +231,29 @@ main {
     border: none; 
     background: transparent;
     cursor: pointer;
+}
+
+.edit-form input{
+    margin: 10px 25px;
+    padding: 0;
+    border: 0;
+    outline: 0; 
+    vertical-align: baseline; 
+    background: transparent;
+    background-image: url('../img/crumpled-paper-texture-png.png');
+
+    background-size: 100% auto;
+    background-repeat: repeat-y;
+
+    height: 240px;
+	width: 200px;
+    
+	background-color: #fff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2), inset 0 0 50px rgba(0, 0, 0, 0.1);
+
+    text-align: center;
+    font-size: 36px;
+    font-family: 'Bad Script', cursive;
+    text-transform: uppercase;
+ 
 }

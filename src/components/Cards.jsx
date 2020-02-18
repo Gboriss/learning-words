@@ -15,12 +15,7 @@ class Cards extends React.Component {
         {this.props.checked
         ? this.props.onEdit(this.props.id, this.refs.title.value)
         : this.props.onEditTranslated(this.props.id, this.refs.translated.value)}
-     
-        // let title = this.refs.title.value
-        // let translated = this.refs.translated.value
 
-        // this.props.onEdit(this.props.id, title)
-        // this.props.onEditTranslated(this.props.id, translated)
         this.setState({ editing: false })
     }
 
@@ -32,7 +27,7 @@ class Cards extends React.Component {
                     ? <input type='text' ref='title' defaultValue={ this.props.title } />
                     : <input type='text' ref='translated' defaultValue={ this.props.translated } />
                 }
-                <Check className='edit' icon={ '☑' } type='submit' />
+                <Check className='editDone' icon={ '☑' } type='submit' />
             </form>
             :
             <div className='container'>
@@ -50,7 +45,8 @@ class Cards extends React.Component {
                         onClick={() => this.setState({ editing: true })}/>
                     <Check className='buttons' icon={ '✓' } 
                         onClick={ () => this.props.done(this.props.id) }/>
-                    <Check className='buttons' icon={ '✗' } />
+                    <Check className='buttons' icon={ '✗' } 
+                        onClick={ () => this.props.notDone(this.props.id) } />
                 </div>
                 
             </div>    
